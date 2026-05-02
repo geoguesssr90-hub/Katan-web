@@ -31,12 +31,10 @@
                />
             </div>
             <div>
-              <Maintext />
+              <Scrollspy />
               <BListGroup>
-                <BListGroupItem button variant="outline-primary">あいうえお</BListGroupItem>
-                <BListGroupItem href="#" variant="dark">かきくけこ</BListGroupItem>
+                <BListGroupItem href="#" variant="primary">TOPへ</BListGroupItem>
               </BListGroup>
-              <BButton>さしすせそ</BButton>
             </div>
           </h1>
         </div>
