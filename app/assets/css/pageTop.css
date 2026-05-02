@@ -36,6 +36,7 @@ font-family: "リュウミン R-KL", "Ryumin Regular KL", "游明朝", "YuMincho
     width:100%;
     height:100%;
     margin:100px;
+    margin-left:0;
     margin-top:0;
     background-color: white;
 }
