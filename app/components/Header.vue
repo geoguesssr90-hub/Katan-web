@@ -3,7 +3,7 @@
 
 <template>
 <div id="header-wrap" style="top:0px; left:0px;">
-    <div id="header-area">
+    <div id="header-area" class="Headers">
         <header id="header-content">
             <div class="header-logo">
                 <div class="inner">
@@ -17,7 +17,7 @@
 
 <style scoped>
 #header-content{
-    background-color: #1b4506;
+    background-color: #57b0d9;
     margin:0;
     padding:0;
     font-size: 100%;

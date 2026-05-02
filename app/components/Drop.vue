@@ -7,7 +7,7 @@ defineProps({
 </script>
 
 <template>
-<li class="nav-item dropdown">
+<p class="nav-item dropdown">
     <a class="nav-link dropdown-toggle"
         id="navbarDropdownMenuLink"
         role="button"
@@ -18,7 +18,7 @@ defineProps({
     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         <NuxtLink v-for="(text,index) in texts" :key="text" class="dropdown-item" :to="urls[index]">{{ text }}</NuxtLink>
     </div>
-</li>
+</p>
 </template>
 
 <style scoped>
@@ -26,6 +26,7 @@ defineProps({
 #drop{
     text-align:right;
     background-color:#1b4506;
+    vertical-align: baseline;
 }
 
 </style>

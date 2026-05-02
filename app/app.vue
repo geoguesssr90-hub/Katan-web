@@ -9,14 +9,23 @@
       <Header />
       <Nav />
       <main id="main-area">
-        <div>
-          <h1 class="h1">カタンルール紹介</h1>
-          <ul class="page">
-            <li>カタンとは</li>
-            <Aboutkatan />
-            <li>ゲームの進め方</li>
-          </ul>
+        <div class="container">
+          <div class="row">
+          <h1 class="h1">
+            <div class="top">
+              <Drop class="top"
+              :texts="['はじめに','目的','ポイント']"
+              :urls="['#','##','###']"
+              title="ルール"
+               />
+            </div>
+            <div>
+              <Maintext />
+            </div>
+          </h1>
         </div>
+      </div>
+
       </main>
     </div> 
   </div>
