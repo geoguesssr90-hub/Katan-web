@@ -5,7 +5,7 @@
     :toggleable="true"
     variant="primary"
   >
-    <BNavbarBrand href="#navbar-offcanvas">NavBar</BNavbarBrand>
+    <BNavbarBrand href="/" id="house"><strong>CATANホームページ</strong></BNavbarBrand>
     <BNavbarToggle target="nav-offcanvas" />
     <BOffcanvas
       id="nav-offcanvas"
@@ -49,3 +49,18 @@
   </BNavbar>
   <!-- #endregion template -->
 </template>
+
+<style scoped>
+@media(min-width:768px){
+  #house{
+    font-size:50px !important;
+  }
+}
+
+@media(max-width:767px){
+  #house{
+    font-size:30px;
+  }
+}
+
+</style>
