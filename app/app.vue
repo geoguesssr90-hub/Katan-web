@@ -4,6 +4,9 @@
 </script>
 
 <template>
+  <head>
+    <meta name=”viewport” content="width=device-width, initial-scale=1"> 
+  </head>
   <div id="containment-area">
     <div id="content-area">
       <Header/>
