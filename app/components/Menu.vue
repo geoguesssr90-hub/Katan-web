@@ -5,7 +5,7 @@
     :toggleable="true"
     variant="primary"
   >
-    <BNavbarBrand href="/" id="house"><strong>CATANホームページ</strong></BNavbarBrand>
+    <BNavbarBrand href="/" id="strong"><strong>CATAN</strong></BNavbarBrand>
     <BNavbarToggle target="nav-offcanvas" />
     <BOffcanvas
       id="nav-offcanvas"
@@ -58,7 +58,7 @@
 }
 
 @media(max-width:767px){
-  #house{
+  #strong{
     font-size:30px;
   }
 }
