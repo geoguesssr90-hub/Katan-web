@@ -1,5 +1,4 @@
 <template>
-    <div id="div">
   <BContainer>
     <BRow>
       <BCol cols="4">
@@ -9,17 +8,17 @@
           vertical
         >
           <BNavItem
-            href="#custom-intro"
+            href="#section1"
             @click="scrollIntoView"
             >はじめに</BNavItem
           >
           <BNavItem
-            href="#custom-main"
+            href="#section2"
             @click="scrollIntoView"
             >目的</BNavItem
           >
           <BNavItem
-            href="#custom-sidebar"
+            href="#section3"
             @click="scrollIntoView"
             >ポイント</BNavItem
           >
@@ -27,41 +26,25 @@
       </BCol>
       <BCol cols="8">
         <div
-          ref="content"
+          ref="scrollContent"
           style="height: 300px; overflow-y: auto; border: 1px solid #dee2e6; padding: 1rem"
         >
-          <div
-            id="custom-intro"
-            class="content-section"
-          >
-            <h4>はじめに</h4>
-            <p>
-                <Descriptions e="start"/>
-            </p>
-          </div>
-          <div
-            id="custom-main"
-            class="content-section"
-          >
-            <h4>目的</h4>
-            <p>
-                <Descriptions e="proposal"/>
-            </p>
-          </div>
-          <div
-            id="custom-sidebar"
-            class="content-section"
-          >
-            <h4>ポイント</h4>
-            <p>
-                <Descriptions e="points"/>
-            </p>
-          </div>
+          <h4 id="section1">はじめに</h4>
+          <p>
+          <Descriptions e="start"/>
+          </p>
+          <h4 id="section2">目的</h4>
+          <p>
+          <Descriptions e="proposal"/>
+          </p>
+          <h4 id="section3">ポイント</h4>
+          <p>
+          <Descriptions e="points"/>
+          </p>
         </div>
       </BCol>
     </BRow>
   </BContainer>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -70,17 +53,9 @@ import {useScrollspy} from 'bootstrap-vue-next'
 
 
 
-const content = useTemplateRef('content')
+const scrollContent = useTemplateRef('scrollContent')
 const navTarget = useTemplateRef('navTarget')
 
-const {scrollIntoView} = useScrollspy(content, navTarget, {
-  contentQuery: '.content-section[id]',
-})
+const {scrollIntoView} = useScrollspy(scrollContent, navTarget)
 </script>
 
-<style scoped>
-#div{
-    height:auto;
-    width:auto;
-}
-</style>

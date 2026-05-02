@@ -7,21 +7,14 @@
   <head>
     <meta name=”viewport” content="width=device-width, initial-scale=1"> 
   </head>
+
+
+  <body>
   <div id="containment-area">
     <div id="content-area">
       <Header/>
-      <Nav />     
-      <BCarousel
-        ref="myCarousel"
-        :interval="10000"
-        controls
-        indicators
-        ride="carousel"
-      >
-        <BCarouselSlide img-src="https://picsum.photos/1024/480/?image=25" />
-        <BCarouselSlide img-src="https://picsum.photos/1024/480/?image=26" />
-        <BCarouselSlide img-src="https://picsum.photos/1024/480/?image=27" />
-      </BCarousel>
+      <Menu />
+      <Pic />    
       <main id="main-area">
         <div class="container">
           <div class="row">
@@ -46,5 +39,6 @@
       </main>
     </div> 
   </div>
+</body>
 
 </template>

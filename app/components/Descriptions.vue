@@ -31,12 +31,29 @@ defineProps({
 
 <style scoped>
 
+@media(max-width:768px){
+
 .div{
+    height:100%;
     font-size:18px;
     margin:15px;
     margin-top:2px;
     padding:10px;
     padding-top:2px;
 }
+
+}
+
+@media(max-width:767px){
+    .div{
+        height:100%;
+        font-size:15px;
+        margin:4px;
+        margin-top:1px;
+        padding:4px;
+        padding-top:1px;
+    }
+}
+
 
 </style>
