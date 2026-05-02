@@ -7,7 +7,7 @@ const urls=ref(['##','###'])
 <template>
 <nav id="nav" class="navbar navbar-expand-sm navbar-dark">
     <div class="container-fluid">
-        <NuxtLink class="navbar-brand" to="/">カタン</NuxtLink>
+        <NuxtLink class="navbar-brand" to="/"><i class="bi bi-house-door" style="font-size: 2rem;"></i></NuxtLink>
         <button class="navbar-toggler" 
         type="button" 
         data-bs-toggle="collapse" 

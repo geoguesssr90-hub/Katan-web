@@ -8,6 +8,7 @@
             <div class="header-logo">
                 <div class="inner">
                 カタン公式ルール（非公式団体）
+                <BBadge>New</BBadge>
                 </div>
             </div>
         </header>

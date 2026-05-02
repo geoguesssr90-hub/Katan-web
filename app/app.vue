@@ -6,8 +6,19 @@
 <template>
   <div id="containment-area">
     <div id="content-area">
-      <Header />
-      <Nav />
+      <Header/>
+      <Nav />     
+      <BCarousel
+        ref="myCarousel"
+        :interval="10000"
+        controls
+        indicators
+        ride="carousel"
+      >
+        <BCarouselSlide img-src="https://picsum.photos/1024/480/?image=25" />
+        <BCarouselSlide img-src="https://picsum.photos/1024/480/?image=26" />
+        <BCarouselSlide img-src="https://picsum.photos/1024/480/?image=27" />
+      </BCarousel>
       <main id="main-area">
         <div class="container">
           <div class="row">
@@ -21,6 +32,11 @@
             </div>
             <div>
               <Maintext />
+              <BListGroup>
+                <BListGroupItem button variant="outline-primary">あいうえお</BListGroupItem>
+                <BListGroupItem href="#" variant="dark">かきくけこ</BListGroupItem>
+              </BListGroup>
+              <BButton>さしすせそ</BButton>
             </div>
           </h1>
         </div>
@@ -29,4 +45,5 @@
       </main>
     </div> 
   </div>
+
 </template>

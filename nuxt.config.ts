@@ -1,7 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr:false,
-  css: ['bootstrap/dist/css/bootstrap.min.css'],
+  modules: ['@bootstrap-vue-next/nuxt'],
+  css: ['bootstrap/dist/css/bootstrap.min.css',
+    'bootstrap-icons/font/bootstrap-icons.css'
+  ],
   app: {
     head: {
       script: [
