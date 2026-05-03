@@ -20,11 +20,6 @@
           <div class="row">
           <h1 class="h1">
             <div class="top">
-              <Drop class="top"
-              :texts="['はじめに','目的','ポイント']"
-              :urls="['#','##','###']"
-              title="ルール"
-               />
             </div>
             <div>
               <Scrollspy />

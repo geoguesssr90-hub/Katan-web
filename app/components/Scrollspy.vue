@@ -1,7 +1,7 @@
 <template>
-  <BContainer>
+  <BContainer id="container-area">
     <BRow>
-      <BCol cols="4">
+      <BCol cols="4" id="left-box">
         <BNav
           ref="navTarget"
           pills
@@ -24,10 +24,10 @@
           >
         </BNav>
       </BCol>
-      <BCol cols="8">
+      <BCol cols="8" id="right-box">
         <div
           ref="scrollContent"
-          style="height: 300px; overflow-y: auto; border: 1px solid #dee2e6; padding: 1rem"
+          style="height: 100%; overflow-y: auto; border: 1px solid #dee2e6; padding: 1rem"
         >
           <h4 id="section1">はじめに</h4>
           <p>
@@ -59,3 +59,26 @@ const navTarget = useTemplateRef('navTarget')
 const {scrollIntoView} = useScrollspy(scrollContent, navTarget)
 </script>
 
+<style scoped>
+
+#left-box{
+    font-size: small;
+    width:20%;
+
+}
+
+#container-area{
+    margin:10px;
+    margin-left:0;
+    margin-right:0;
+    padding:10px;
+    padding-left:0;
+    padding-right:0;
+    height:100%;
+}
+
+#right-box{
+    height: 100%;
+}
+
+</style>

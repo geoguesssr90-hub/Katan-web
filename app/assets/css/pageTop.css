@@ -14,7 +14,8 @@ font-family: "リュウミン R-KL", "Ryumin Regular KL", "游明朝", "YuMincho
     }
 
     .h1{
-        margin:10px
+        margin:10px;
+        height: 100%;
     }
 
 }

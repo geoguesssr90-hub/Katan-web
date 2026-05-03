@@ -7,6 +7,12 @@ defineProps({
 </script>
 
 <template>
+
+<Drop class="top"
+:texts="['はじめに','目的','ポイント']"
+:urls="['#','##','###']"
+title="ルール"
+/>
 <p class="nav-item dropdown">
     <a class="nav-link dropdown-toggle"
         id="navbarDropdownMenuLink"
