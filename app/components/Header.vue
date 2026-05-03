@@ -17,7 +17,11 @@
 </template>
 
 <style scoped>
+#header-wrap{
+    position: sticky;
+}
 #header-content{
+    flex-shrink: 0;
     background-color: #57b0d9;
     margin:0;
     padding:0;
@@ -26,6 +30,7 @@
     top: 0;
     z-index: 1000;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 #header-content.scrolled{
@@ -46,5 +51,6 @@
 color:white;
 font-family: noto-sans, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 border-bottom: 5px solid #3eb370;
+flex-shrink: 0;
 }
 </style>

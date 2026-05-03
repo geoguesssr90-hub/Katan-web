@@ -8,7 +8,8 @@ font-family: "リュウミン R-KL", "Ryumin Regular KL", "游明朝", "YuMincho
 @media(max-width:768px){
 
     #containment-area{
-        height:1000px;
+        position: absolute; 
+        height:100vw;
         margin:0;
         background-color: white;
     }
@@ -22,7 +23,8 @@ font-family: "リュウミン R-KL", "Ryumin Regular KL", "游明朝", "YuMincho
 
 @media(max-width:767px){
     #containment-area{
-        height:1000px;
+        position:absolute;
+        height:100%;
         margin:0;
         background-color:white;
     }
@@ -31,6 +33,8 @@ font-family: "リュウミン R-KL", "Ryumin Regular KL", "游明朝", "YuMincho
         margin:5px;
     }
 }
+
+
 
 #content-area{
     text-align: center;

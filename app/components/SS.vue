@@ -4,35 +4,40 @@
     v-b-color-mode="'dark'"
     :toggleable="true"
     variant="primary"
-    class="menu-bar"
+    class="navbar-nav-scroll"
   >
-    <BNavbarBrand href="/" id="strong"><strong>CATAN</strong></BNavbarBrand>
-    <BNavbarToggle target="nav-offcanvas" />
-    <BOffcanvas
-      id="nav-offcanvas"
-      title="カタン公式ルール（非公式団体）"
-      placement="end"
+    <BNavbarBrand href="#navbar-scroll">NavBar</BNavbarBrand>
+    <BNavbarToggle target="nav-scroll" />
+    <BCollapse
+      id="nav-scroll"
       is-nav
     >
       <BNavbarNav>
-        <BNavItem href="/">カタンについて</BNavItem>
-        <BNavItem href="/about">カタンルール紹介</BNavItem>
+        <BNavItem href="#navbar-scroll">Link</BNavItem>
+        <BNavItem
+          href="#navbar-scroll"
+          disabled
+          >Disabled</BNavItem
+        >
       </BNavbarNav>
       <!-- Right aligned nav items -->
       <BNavbarNav class="ms-auto mb-2 mb-lg-0">
         <BNavItemDropdown
-          text="言語"
+          text="Lang"
           right
         >
-          <BDropdownItem>日本語</BDropdownItem>
-          <BDropdownItem>English</BDropdownItem>
+          <BDropdownItem>EN</BDropdownItem>
+          <BDropdownItem>ES</BDropdownItem>
+          <BDropdownItem>RU</BDropdownItem>
+          <BDropdownItem>FA</BDropdownItem>
         </BNavItemDropdown>
         <BNavItemDropdown right>
           <!-- Using 'button-content' slot -->
           <template #button-content>
-            <em>UserId</em>
+            <em>User</em>
           </template>
-          <BDropdownItem>email</BDropdownItem>
+          <BDropdownItem>Profile</BDropdownItem>
+          <BDropdownItem>Sign Out</BDropdownItem>
         </BNavItemDropdown>
       </BNavbarNav>
       <BNavForm class="d-flex">
@@ -46,26 +51,7 @@
           >Search</BButton
         >
       </BNavForm>
-    </BOffcanvas>
+    </BCollapse>
   </BNavbar>
   <!-- #endregion template -->
 </template>
-
-<style scoped>
-@media(min-width:768px){
-  #house{
-    font-size:50px !important;
-  }
-}
-
-@media(max-width:767px){
-  #strong{
-    font-size:30px;
-  }
-}
-
-.menu-bar{
-  position: sticky;
-}
-
-</style>

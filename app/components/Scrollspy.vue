@@ -27,7 +27,7 @@
       <BCol cols="8" id="right-box">
         <div
           ref="scrollContent"
-          style="height: 100%; overflow-y: auto; border: 1px solid #dee2e6; padding: 1rem"
+          style="height: 90%; overflow-y: auto; border: 1px solid #dee2e6; padding: 1rem"
         >
           <h4 id="section1">はじめに</h4>
           <p>

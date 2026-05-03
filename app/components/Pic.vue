@@ -9,13 +9,22 @@ import img3 from '@/assets/images/catan-3.jpg'
 <template>
     <BCarousel
     ref="myCarousel"
-    :interval="10000"
+    :interval="5000"
     controls
     indicators
     ride="carousel"
     >
-    <BCarouselSlide :img-src="img1" />
-    <BCarouselSlide :img-src="img2"/>
-    <BCarouselSlide :img-src="img3"/>
+    <BCarouselSlide class="img" :img-src="img1" />
+    <BCarouselSlide class="img" :img-src="img2"/>
+    <BCarouselSlide class="img" :img-src="img3"/>
     </BCarousel>
 </template>
+
+<style scoped>
+
+.img{
+    width:100%;
+    height:500px;
+}
+
+</style>

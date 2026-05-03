@@ -35,7 +35,7 @@ defineProps({
 
 .div{
     height:100%;
-    font-size:18px;
+    font-size:5px !important;
     margin:15px;
     margin-top:2px;
     padding:10px;
@@ -47,7 +47,7 @@ defineProps({
 @media(max-width:767px){
     .div{
         height:100%;
-        font-size:15px;
+        font-size:10px !important;
         margin:4px;
         margin-top:1px;
         padding:4px;
