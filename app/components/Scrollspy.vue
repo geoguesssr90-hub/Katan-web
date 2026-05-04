@@ -48,7 +48,7 @@ const navTarget = useTemplateRef('navTarget')
 
 const { scrollIntoView } = useScrollspy(scrollContent, navTarget)
 
-const HEADER_OFFSET = 72+15// nav-sticky の top と同じ値
+const HEADER_OFFSET = 72 + 15// nav-sticky の top と同じ値
 
 function scrollTo(id: string) {
   const el = document.getElementById(id)
