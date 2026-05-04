@@ -9,6 +9,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      title:'カタンについて（非公式団体）',
       script: [
         { src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js' },
         { src: "https://www.googletagmanager.com/gtag/js?id=G-SQS5BFD87G",
@@ -27,7 +28,7 @@ export default defineNuxtConfig({
 
       meta:[
         {charset: 'utf-8'},
-        {name:"viewport", content: 'width=device-width, initial-scale=1'},
+        {name:"viewport", content: 'width=device-width, height=device-height, initial-scale=1'},
       ]
 
 

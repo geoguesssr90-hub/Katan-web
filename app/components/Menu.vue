@@ -4,7 +4,6 @@
     v-b-color-mode="'dark'"
     :toggleable="true"
     variant="primary"
-    class="menu-bar"
   >
     <BNavbarBrand href="/" id="strong"><strong>CATAN</strong></BNavbarBrand>
     <BNavbarToggle target="nav-offcanvas" />
@@ -64,8 +63,5 @@
   }
 }
 
-.menu-bar{
-  position: sticky;
-}
 
 </style>

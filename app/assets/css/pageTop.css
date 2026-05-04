@@ -1,7 +1,12 @@
+html{
+    height: 100%;
+}
+
 body{
 color: black;
 margin: 0;
 padding: 0;
+height: 100%;
 font-family: "リュウミン R-KL", "Ryumin Regular KL", "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", serif;
 }
 
@@ -9,7 +14,8 @@ font-family: "リュウミン R-KL", "Ryumin Regular KL", "游明朝", "YuMincho
 
     #containment-area{
         position: absolute; 
-        height:100vw;
+        height: 90vh;
+        width: auto;
         margin:0;
         background-color: white;
     }
@@ -24,13 +30,15 @@ font-family: "リュウミン R-KL", "Ryumin Regular KL", "游明朝", "YuMincho
 @media(max-width:767px){
     #containment-area{
         position:absolute;
-        height:100%;
+        height: auto;
+        width: auto;
         margin:0;
         background-color:white;
     }
 
     .h1{
         margin:5px;
+        width: 100%;
     }
 }
 
@@ -38,7 +46,7 @@ font-family: "リュウミン R-KL", "Ryumin Regular KL", "游明朝", "YuMincho
 
 #content-area{
     text-align: center;
-    width:100%;
+    width:fit-content;
     height:100%;
     margin:100px;
     margin-left:0;
@@ -62,3 +70,9 @@ font-family: "リュウミン R-KL", "Ryumin Regular KL", "游明朝", "YuMincho
     padding-bottom: 0.03px;
 }
 
+#scroll{
+    width: fit-content;
+    text-align: center;
+    height: 100vh;        /* 固定したい縦幅を指定 */
+    overflow-y: scroll;   /* 縦方向にスクロール */
+}

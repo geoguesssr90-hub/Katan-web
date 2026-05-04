@@ -1,8 +1,3 @@
-<script setup>
-  import '@/assets/css/pageTop.css'
-
-</script>
-
 <template>
 
 <header class="sticky-top"><Menu /></header> 
@@ -30,3 +25,29 @@
     </div> 
   </div>
 </template>
+
+
+<script setup lang="ts">
+import '@/assets/css/pageTop.css'
+import * as bootstrap from 'bootstrap'
+import { onMounted, onUnmounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+let scrollspy: bootstrap.ScrollSpy | null = null
+
+const initScrollspy = () => {
+  scrollspy?.dispose()
+  setTimeout(() => {
+    scrollspy = new bootstrap.ScrollSpy(document.body, {
+      target: '#toc-nav',
+      smoothScroll: true,
+      rootMargin: '0px 0px -40%',
+    })
+  }, 100)
+}
+
+watch(() => route.path, initScrollspy)
+onMounted(initScrollspy)
+onUnmounted(() => scrollspy?.dispose())
+</script>
