@@ -1,29 +1,28 @@
 <template>
   <BContainer id="container-area" fluid>
     <BRow>
-      <!-- コンテンツ（左・広い） -->
       <BCol cols="9" id="right-box">
         <div ref="scrollContent">
-          <h4 id="section1">はじめに</h4>
-          <p><Descriptions e="start"/></p>
-
-          <h4 id="section2">目的</h4>
-          <p><Descriptions e="proposal"/></p>
-
-          <h4 id="section3">ポイント</h4>
-          <p><Descriptions e="points"/></p>
+          <template v-for="section in sections" :key="section.id">
+            <h4 :id="section.id">{{ section.label }}</h4>
+            <slot :name="section.id" />
+          </template>
         </div>
       </BCol>
 
-      <!-- 目次（右・細い） -->
       <BCol cols="3" id="left-box">
         <div id="nav-sticky">
           <BNav ref="navTarget" pills vertical>
-            <p class="toc-title">カタンについて</p>
+            <p class="toc-title">{{ title }}</p>
             <hr />
-            <BNavItem href="#section1" @click="scrollIntoView">はじめに</BNavItem>
-            <BNavItem href="#section2" @click="scrollIntoView">目的</BNavItem>
-            <BNavItem href="#section3" @click="scrollIntoView">ポイント</BNavItem>
+            <BNavItem
+              v-for="section in sections"
+              :key="section.id"
+              :href="`#${section.id}`"
+              @click="scrollIntoView"
+            >
+              {{ section.label }}
+            </BNavItem>
           </BNav>
         </div>
       </BCol>
@@ -34,6 +33,15 @@
 <script setup lang="ts">
 import { useTemplateRef } from 'vue'
 import { useScrollspy } from 'bootstrap-vue-next'
+
+// ★ Props定義
+const props = defineProps<{
+  title: string
+  sections: {
+    id: string
+    label: string
+  }[]
+}>()
 
 const scrollContent = useTemplateRef('scrollContent')
 const navTarget = useTemplateRef('navTarget')
@@ -58,6 +66,7 @@ const { scrollIntoView } = useScrollspy(scrollContent, navTarget)
 /* コンテンツ側はスクロールさせない（ページ全体でスクロール） */
 #right-box {
   padding: 1rem;
+  align-self: flex-start;
 }
 
 .toc-title{

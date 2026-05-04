@@ -1,6 +1,22 @@
 <template>
   <div>
-    <Scrollspy />
+    <Scrollspy :title="title" :sections="sections">
+        <template #section1><Descriptions e="start" /></template>
+        <template #section2><Descriptions e="proposal" /></template>
+        <template #section3><Descriptions e="points" /></template>
+    </Scrollspy>
     <NuxtLink to="/about">カタンルール説明</NuxtLink>
   </div>
 </template>
+
+<script setup lang="ts">
+import Scrollspy from '@/components/Scrollspy.vue'
+
+const title='カタンについて'
+const sections = [
+    {id:'section1', label: 'はじめに',},
+    {id:'section2', label:'目的',},
+    {id:'section3', label:'ポイント',}
+]
+
+</script>
