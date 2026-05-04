@@ -57,10 +57,26 @@ const { scrollIntoView } = useScrollspy(scrollContent, navTarget)
 /* 目次をスクロールしても追従させる */
 #nav-sticky {
     position: sticky;
-    top: 56px;        /* ヘッダーがある場合はその高さに合わせる */
-    font-size: small;
+    top: 72px;      /* ヘッダーがある場合はその高さに合わせる */
     border-left: 1px solid #dee2e6;  /* 左に区切り線 */
     padding-left: 1rem;
+}
+
+@media(min-width:768px){
+    #nav-sticky{
+        font-size:small;
+    }
+}
+
+@media(max-width:767px){
+    #nav-sticky{
+        font-size:7px;
+        padding:0 !important;
+    }
+
+    #left-box{
+        padding:0;
+    }
 }
 
 /* コンテンツ側はスクロールさせない（ページ全体でスクロール） */

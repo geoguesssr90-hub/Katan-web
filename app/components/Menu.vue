@@ -52,14 +52,14 @@
 
 <style scoped>
 @media(min-width:768px){
-  #house{
-    font-size:50px !important;
+  #strong{
+    font-size:30px !important;
   }
 }
 
 @media(max-width:767px){
   #strong{
-    font-size:30px;
+    font-size:30px !important;
   }
 }
 
