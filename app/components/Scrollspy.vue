@@ -19,6 +19,8 @@
       <BCol cols="3" id="left-box">
         <div id="nav-sticky">
           <BNav ref="navTarget" pills vertical>
+            <p class="toc-title">カタンについて</p>
+            <hr />
             <BNavItem href="#section1" @click="scrollIntoView">はじめに</BNavItem>
             <BNavItem href="#section2" @click="scrollIntoView">目的</BNavItem>
             <BNavItem href="#section3" @click="scrollIntoView">ポイント</BNavItem>
@@ -46,13 +48,23 @@ const { scrollIntoView } = useScrollspy(scrollContent, navTarget)
 
 /* 目次をスクロールしても追従させる */
 #nav-sticky {
-  position: sticky;
-  top: 1rem;        /* ヘッダーがある場合はその高さに合わせる */
-  font-size: small;
+    position: sticky;
+    top: 56px;        /* ヘッダーがある場合はその高さに合わせる */
+    font-size: small;
+    border-left: 1px solid #dee2e6;  /* 左に区切り線 */
+    padding-left: 1rem;
 }
 
 /* コンテンツ側はスクロールさせない（ページ全体でスクロール） */
 #right-box {
   padding: 1rem;
+}
+
+.toc-title{
+    font-size: 100%;
+    font-weight: bold;
+    color: #333;
+    margin: 10%;
+    margin-bottom: 0;
 }
 </style>

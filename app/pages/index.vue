@@ -1,32 +1,6 @@
-<script setup>
-  import '@/assets/css/pageTop.css'
-
-</script>
-
 <template>
-
-<header class="sticky-top"><Menu /></header> 
-
-  <div id="containment-area">
-    <div id="content-area"> 
-      <main id="main-area">
-        <div class="container">
-          <div class="row">
-          <div class="h1">
-            <div class="top">
-            </div>
-            <div>
-              <div id="scroll"><Scrollspy /></div>
-              <BListGroup>
-                <BListGroupItem href="#" variant="primary">TOPへ</BListGroupItem>
-              </BListGroup>
-              <NuxtPage />
-              <NuxtLink to="/about">カタンルール説明</NuxtLink> 
-            </div>
-        </div>
-        </div>
-      </div>
-      </main>
-    </div> 
+  <div>
+    <Scrollspy />
+    <NuxtLink to="/about">カタンルール説明</NuxtLink>
   </div>
 </template>
