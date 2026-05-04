@@ -4,13 +4,10 @@
       <div class="row align-items-center">
         <div class="col-md-6 mb-2 mb-md-0">
           <a href="/" class="d-inline-flex align-items-center text-decoration-none mb-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-primary me-2" viewBox="0 0 16 16">
-              <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0z"/>
-            </svg>
             <span class="fw-semibold text-dark">CATAN</span>
           </a>
           <p class="text-muted small mb-0">
-            Created by student of NITS.<br>
+            Created by a student of NITS.<br>
           </p>
         </div>
 

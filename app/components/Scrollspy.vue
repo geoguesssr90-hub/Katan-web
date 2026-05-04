@@ -19,7 +19,7 @@
               v-for="section in sections"
               :key="section.id"
               :href="`#${section.id}`"
-              @click="scrollIntoView"
+              @click.prevent="scrollTo(section.id)"
             >
               {{ section.label }}
             </BNavItem>
@@ -47,6 +47,15 @@ const scrollContent = useTemplateRef('scrollContent')
 const navTarget = useTemplateRef('navTarget')
 
 const { scrollIntoView } = useScrollspy(scrollContent, navTarget)
+
+const HEADER_OFFSET = 72+15// nav-sticky の top と同じ値
+
+function scrollTo(id: string) {
+  const el = document.getElementById(id)
+  if (!el) return
+  const y = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET
+  window.scrollTo({ top: y, behavior: 'smooth' })
+}
 </script>
 
 <style scoped>
