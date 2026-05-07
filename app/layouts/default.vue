@@ -10,16 +10,10 @@
   <footer>
     <Footer />
   </footer>
+
+  <Totop />
 </template>
 
 <script setup lang="ts">
 import '@/assets/css/pageTop.css'
 </script>
-
-<style scoped>
-
-#main{
-    background-color: #f8f9fa;
-}
-
-</style>
