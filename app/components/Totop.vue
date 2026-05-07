@@ -1,11 +1,10 @@
 <template>
 
 <BButton 
-pill 
 class="btn" 
 v-show="buttonActive" 
 @click="pageTop"
->トップへ</BButton>
+><i class="bi bi-chevron-up"></i></BButton>
 
 </template>
 
@@ -41,17 +40,15 @@ onUnmounted(() => {
 
 @media(min-width:768px){
     .btn{
-        bottom:101px;
-        right:100px;
+        bottom:0px;
+        right:200px;
     }
 }
 
 @media(max-width:767px){
     .btn{
-        bottom:133px;
+        bottom:0px;
         right:50px;
-        width:90px;
-        height:30px;
     }
 }
 
