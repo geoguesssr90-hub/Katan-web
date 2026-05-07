@@ -90,7 +90,7 @@ function scrollTo(id: string) {
 
 /* コンテンツ側はスクロールさせない（ページ全体でスクロール） */
 #right-box {
-  padding: 1rem;
+  padding: 1rem;    
   align-self: flex-start;
 }
 

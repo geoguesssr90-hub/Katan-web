@@ -3,7 +3,7 @@
     <Menu />
   </header>
 
-  <main>
+  <main id="main">
     <NuxtPage />
   </main>
 
@@ -15,3 +15,11 @@
 <script setup lang="ts">
 import '@/assets/css/pageTop.css'
 </script>
+
+<style scoped>
+
+#main{
+    background-color: #f8f9fa;
+}
+
+</style>

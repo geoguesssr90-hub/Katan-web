@@ -1,11 +1,10 @@
 <template>
-  <!-- #region template -->
   <BNavbar
     v-b-color-mode="'dark'"
     :toggleable="true"
     variant="primary"
   >
-    <BNavbarBrand href="/" id="strong"><strong>CATAN</strong></BNavbarBrand>
+    <BNavbarBrand to="/" id="strong"><strong>CATAN</strong></BNavbarBrand>
     <BNavbarToggle target="nav-offcanvas" />
     <BOffcanvas
       id="nav-offcanvas"
@@ -14,20 +13,15 @@
       is-nav
     >
       <BNavbarNav>
-        <BNavItem href="/">カタンについて</BNavItem>
-        <BNavItem href="/about">カタンルール紹介</BNavItem>
+        <BNavItem @click.prevent="navigate('/')">カタンについて</BNavItem>
+        <BNavItem @click.prevent="navigate('/about')">カタンルール紹介</BNavItem>
       </BNavbarNav>
-      <!-- Right aligned nav items -->
       <BNavbarNav class="ms-auto mb-2 mb-lg-0">
-        <BNavItemDropdown
-          text="言語"
-          right
-        >
+        <BNavItemDropdown text="言語" right>
           <BDropdownItem>日本語</BDropdownItem>
           <BDropdownItem>English</BDropdownItem>
         </BNavItemDropdown>
         <BNavItemDropdown right>
-          <!-- Using 'button-content' slot -->
           <template #button-content>
             <em>UserId</em>
           </template>
@@ -35,33 +29,29 @@
         </BNavItemDropdown>
       </BNavbarNav>
       <BNavForm class="d-flex">
-        <BFormInput
-          class="me-2"
-          placeholder="Search"
-        />
-        <BButton
-          type="submit"
-          variant="outline-success"
-          >Search</BButton
-        >
+        <BFormInput class="me-2" placeholder="Search" />
+        <BButton type="submit" variant="outline-success">Search</BButton>
       </BNavForm>
     </BOffcanvas>
   </BNavbar>
-  <!-- #endregion template -->
 </template>
 
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const navigate = (path) => {
+  document.querySelector('#nav-offcanvas .btn-close')?.click()
+  setTimeout(() => router.push(path), 300)
+}
+</script>
+
 <style scoped>
-@media(min-width:768px){
-  #strong{
-    font-size:30px !important;
-  }
+@media (min-width: 768px) {
+  #strong { font-size: 30px !important; }
 }
-
-@media(max-width:767px){
-  #strong{
-    font-size:30px !important;
-  }
+@media (max-width: 767px) {
+  #strong { font-size: 30px !important; }
 }
-
-
 </style>

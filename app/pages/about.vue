@@ -1,7 +1,8 @@
 <template>
   <div>
     <Scrollspy :title="title" :sections="sections">
-        <template #section1><Descriptions e="about-start" /></template>       
+        <template #section1><Descriptions e="about-start" /></template>
+        <template #section2><Descriptions e="about-rule" /></template>       
     </Scrollspy>
     <NuxtLink to="/">カタンについて</NuxtLink>
   </div>
@@ -13,7 +14,8 @@ import Scrollspy from '~/components/Scrollspy.vue'
 
 const title = 'カタンルール説明'
 const sections = [
-    {id:'section1', label:'ルール概要'}
+    {id:'section1', label:'ルール概要'},
+    {id:'section2', label:'ルールのはじめ'}
 ]
 
 </script>
