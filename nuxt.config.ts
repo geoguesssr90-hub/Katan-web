@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
   ssr:false,
   modules: ['@bootstrap-vue-next/nuxt',
-            '@vercel/analytics',],
+            '@vercel/analytics',
+          '@vercel/speed-insights'],
   css: ['bootstrap/dist/css/bootstrap.min.css',
     'bootstrap-icons/font/bootstrap-icons.css'
   ],
