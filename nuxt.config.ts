@@ -5,13 +5,23 @@ export default defineNuxtConfig({
     preset:'vercel-static'
   },
   ssr:false,
+
+  site: {
+  url: 'https://catan-web-one.vercel.app',
+  name: 'カタンについて（非公式団体）',
+  },
+
+
   modules: ['@bootstrap-vue-next/nuxt',
             '@vercel/analytics',
           '@vercel/speed-insights',
-        'nuxt-gtag'],
+        'nuxt-gtag',
+      '@nuxtjs/sitemap',],
   css: ['bootstrap/dist/css/bootstrap.min.css',
     'bootstrap-icons/font/bootstrap-icons.css'
   ],
+
+
 
   gtag: {id: 'G-SQS5BFD87G' },
   

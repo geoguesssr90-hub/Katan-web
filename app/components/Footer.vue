@@ -13,15 +13,23 @@
 
         <div class="col-md-6">
           <ul class="list-unstyled d-flex flex-wrap justify-content-md-end gap-3 mb-0">
-            <li><NuxtLink to="/" class="text-muted text-decoration-none small footer-link">カタンについて</NuxtLink></li>
-            <li><NuxtLink to="/about" class="text-muted text-decoration-none small footer-link">カタンルール紹介</NuxtLink></li>
-            
+            <li v-for="topic in topics" :key="topic.to">
+              <NuxtLink :to="topic.to" class="text-muted text-decoration-none small footer-link">{{ topic.label }}</NuxtLink></li>
           </ul>
         </div>
       </div>
     </div>
   </footer>
 </template>
+
+<script setup>
+
+const topics=[
+  {label:'カタンルール紹介', to:'/'},
+  {label:'カタンルール詳細', to:'/about'},
+]
+
+</script>
 
 <style scoped>
 .footer {
