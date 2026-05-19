@@ -7,17 +7,28 @@
             <span class="fw-semibold text-dark">CATAN</span>
           </NuxtLink>
           <p class="text-muted small mb-0">
-            Created by a student of NITS.<br>
+            Created by a student of NITS.
           </p>
         </div>
 
         <div class="col-md-6">
           <ul class="list-unstyled d-flex flex-wrap justify-content-md-end gap-3 mb-0">
             <li v-for="topic in topics" :key="topic.to">
-              <NuxtLink :to="topic.to" class="text-muted text-decoration-none small footer-link">{{ topic.label }}</NuxtLink></li>
+              <NuxtLink :to="topic.to" class="text-muted text-decoration-none small footer-link">
+                {{ topic.label }}
+              </NuxtLink>
+            </li>
           </ul>
         </div>
       </div>
+
+      <!-- コピーライトを追加 -->
+      <div class="row mt-3">
+        <div class="col text-center">
+          <p class="text-muted small mb-0">© 2026 カタン非公式団体</p>
+        </div>
+      </div>
+
     </div>
   </footer>
 </template>
@@ -27,6 +38,7 @@
 const topics=[
   {label:'カタンルール紹介', to:'/'},
   {label:'カタンルール詳細', to:'/about'},
+  {label:'プライバシーポリシー', to:'/privacy'}
 ]
 
 </script>

@@ -1,2 +1,4 @@
 User-Agent: *
 Disallow:
+
+Sitemap: https://catan-web-one.vercel.app/sitemap.xml
