@@ -11,65 +11,13 @@ min-height: 100%;
 font-family: "リュウミン R-KL", "Ryumin Regular KL", "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", serif;
 }
 
-@media(max-width:768px){
-
-    #containment-area{
-        position: absolute; 
-        height: 90vh;
-        width: auto;
-        margin:0;
-        background-color: white;
-    }
-
-    .h1{
-        margin:10px;
-        height: 100%;
-    }
-
+@media(min-width:768px){
 }
 
 @media(max-width:767px){
-    #containment-area{
-        position:absolute;
-        height: auto;
-        width: auto;
-        margin:0;
-        background-color:white;
-    }
 
-    .h1{
-        margin:5px;
-        width: 100%;
-    }
 }
 
-
-
-#content-area{
-    text-align: center;
-    width:fit-content;
-    height:100%;
-    margin:100px;
-    margin-left:0;
-    margin-top:0;
-    background-color: white;
-}
-
-#main-area{
-    min-height:100%;
-    color:white;
-}
-
-.h1{
-    color:black;
-    font-family: "リュウミン R-KL", "Ryumin Regular KL", "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", serif;
-}
-
-.top{
-    background-color: rgb(153, 153, 153);
-    padding:5px;
-    padding-bottom: 0.03px;
-}
 
 #scroll{
     width: fit-content;

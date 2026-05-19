@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="div">
     <Scrollspy :title="title" :sections="sections">
         <template #section1><Descriptions e="start" /></template>
         <template #section2><Descriptions e="proposal" /></template>

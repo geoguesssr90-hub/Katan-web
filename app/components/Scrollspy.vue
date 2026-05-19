@@ -75,6 +75,10 @@ function scrollTo(id: string) {
     #nav-sticky{
         font-size:small;
     }
+
+    #right-box{
+      padding:40px
+    }
 }
 
 @media(max-width:767px){
@@ -86,11 +90,14 @@ function scrollTo(id: string) {
     #left-box{
         padding:0;
     }
+
+    #right-box{
+      padding:25px;
+    }
 }
 
 /* コンテンツ側はスクロールさせない（ページ全体でスクロール） */
-#right-box {
-  padding: 1rem;    
+#right-box {    
   align-self: flex-start;
 }
 

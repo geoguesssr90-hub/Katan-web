@@ -10,18 +10,22 @@ defineProps({
     </p>
 </div>
 <div class="div" v-if = "e === 'proposal'">
-    <p>
+    <div>
+        <p>
         島は六角形のタイルで構成されています。<br />
         タイルの種類は
-        <ur>
+        </p>
+        <ul>
             <li>森</li>
             <li>丘</li>
             <li>牧草地</li>
             <li>畑</li>
             <li>山</li>
-        </ur>
+        </ul>
+        <p>
         の5種類で、それぞれ木材・レンガ・羊毛・穀物・鉄鉱石という資源に対応しています。各タイルには数字が書かれていて、毎ターンサイコロを振り、その目の数字のタイルに隣接する建物を持っているプレイヤーが資源をもらえます。
-    </p>
+        </p>
+    </div>
 </div>
 
 <div class="div" v-if="e==='turn'">
@@ -37,7 +41,7 @@ defineProps({
             <li>都市：2P</li>
             <li>最長交易路：2P</li>
             <li>最大騎士力：2P</li>
-            <li>勝利店カード：1P</li>
+            <li>勝利点カード：1P</li>
         </ul>
         <p>
             さらに一番長い道を持つ人がもらえる「最長街道」が2点<br />
@@ -77,11 +81,12 @@ defineProps({
 @media(max-width:767px){
     .div{
         height:100%;
-        font-size:10px !important;
+        font-size:14px;
         margin:4px;
         margin-top:1px;
         padding:4px;
         padding-top:1px;
+        line-height: 1.8;
     }
 }
 
