@@ -1,34 +1,25 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: '2025-05-19',
   nitro:{
     preset:'vercel-static'
   },
+  ssr:false,
   modules: ['@bootstrap-vue-next/nuxt',
             '@vercel/analytics',
-          '@vercel/speed-insights'],
+          '@vercel/speed-insights',
+        'nuxt-gtag'],
   css: ['bootstrap/dist/css/bootstrap.min.css',
     'bootstrap-icons/font/bootstrap-icons.css'
   ],
+
+  gtag: {id: 'G-SQS5BFD87G' },
   
 
   app: {
     head: {
       title:'カタンについて（非公式団体）',
-      script: [
-        { src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js' },
-        { src: "https://www.googletagmanager.com/gtag/js?id=G-SQS5BFD87G",
-          async: true
-        },
-        {
-          innerHTML: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-SQS5BFD87G');
-          `,
-          type: 'text/javascript'
-        }
-      ],
+      htmlAttrs: {lang: 'ja'},
 
       meta:[
         {charset: 'utf-8'},
