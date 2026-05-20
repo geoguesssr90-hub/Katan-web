@@ -18,4 +18,13 @@ const sections = [
     {id:'section2', label:'ルールのはじめ'}
 ]
 
+useHead({
+  title:'カタンルール説明',
+  meta: [
+    {name: 'description', content: 'カタンルール概要、カタンルール詳細'},
+    {property: 'og:url', content: 'https://catan-web-one.vercel.app/about'},
+    {property: 'og:title', content: 'カタンルール説明 | カタン非公式団体'}
+  ]
+})
+
 </script>

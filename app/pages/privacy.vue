@@ -62,4 +62,13 @@ const today = new Date().toLocaleDateString('ja-JP', {
   month: 'long',
   day: 'numeric'
 })
+
+useHead({
+    title: 'プライバシーポリシー',
+    meta: [
+        {name: 'description', content: 'プライバシーポリシーページ'},
+        {property: 'og:url', content: 'https://catan-web-one.vercel.app/privacy'},
+        {property: 'og:title', content: 'プライバシーポリシー | カタン非公式団体'}
+    ]
+})
 </script>

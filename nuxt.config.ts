@@ -28,7 +28,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title:'カタンについて（非公式団体）',
+      titleTemplate:'%s | カタン非公式団体',
       htmlAttrs: {lang: 'ja'},
 
       meta:[
