@@ -36,6 +36,7 @@ export default defineNuxtConfig({
         {name:"viewport", content: 'width=device-width, height=device-height, initial-scale=1'},
         { name: 'description', content: 'カタンのルール、遊び方の紹介ページ' },
         { name: 'robots', content: 'index, follow' },
+        {name: "google-site-verification", content: "jyNNwGXVWYrjRyCEDqOi-k_acz6yFuPCIhcwyXUBba0" },
         // OGP
         { property: 'og:title', content: 'カタンについて（非公式団体）' },
         { property: 'og:description', content: 'カタンのルール、遊び方の紹介ページ' },
