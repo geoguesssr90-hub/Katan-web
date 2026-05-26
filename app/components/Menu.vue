@@ -13,25 +13,14 @@
       is-nav
     >
       <BNavbarNav>
-        <BNavItem @click.prevent="navigate('/')">カタンについて</BNavItem>
-        <BNavItem @click.prevent="navigate('/about')">カタンルール紹介</BNavItem>
+        <!menu topicks>
+        <BNavItem 
+        v-for="link in navLinks"
+        :key="link.path"
+        @click.prevent="navigate(link.path)">
+      {{ link.label }}
+      </BNavItem>
       </BNavbarNav>
-      <BNavbarNav class="ms-auto mb-2 mb-lg-0">
-        <BNavItemDropdown text="言語" right>
-          <BDropdownItem>日本語</BDropdownItem>
-          <BDropdownItem>English</BDropdownItem>
-        </BNavItemDropdown>
-        <BNavItemDropdown right>
-          <template #button-content>
-            <em>UserId</em>
-          </template>
-          <BDropdownItem>email</BDropdownItem>
-        </BNavItemDropdown>
-      </BNavbarNav>
-      <BNavForm class="d-flex">
-        <BFormInput class="me-2" placeholder="Search" />
-        <BButton type="submit" variant="outline-success">Search</BButton>
-      </BNavForm>
     </BOffcanvas>
   </BNavbar>
 </template>
@@ -45,6 +34,13 @@ const navigate = (path) => {
   document.querySelector('#nav-offcanvas .btn-close')?.click()
   setTimeout(() => router.push(path), 300)
 }
+
+const navLinks=[
+  {label: 'カタンについて', path: '/'},
+  {label: 'カタンルール詳細', path: '/about'},
+  {label: 'プライバシーポリシー', path: '/privacy'}
+]
+
 </script>
 
 <style scoped>
