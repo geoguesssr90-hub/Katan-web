@@ -16,7 +16,8 @@ export default defineNuxtConfig({
             '@vercel/analytics',
           '@vercel/speed-insights',
         'nuxt-gtag',
-      '@nuxtjs/sitemap',],
+      '@nuxtjs/sitemap',
+      '@nuxt/content',],
   css: ['bootstrap/dist/css/bootstrap.min.css',
     'bootstrap-icons/font/bootstrap-icons.css'
   ],
@@ -24,7 +25,13 @@ export default defineNuxtConfig({
 
 
   gtag: {id: 'G-SQS5BFD87G' },
-  
+
+  // Nuxt Content: use Node's built-in node:sqlite (Node >= 22) so no
+  // native better-sqlite3 build is needed on this machine.
+  content: {
+    experimental: { sqliteConnector: 'native' },
+  },
+
 
   app: {
     head: {
