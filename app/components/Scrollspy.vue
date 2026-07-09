@@ -1,7 +1,7 @@
 <template>
-  <BContainer v-if="!isMobile" id="container-area" fluid>
+  <BContainer id="container-area" fluid>
     <BRow>
-      <BCol cols="9" id="right-box">
+      <BCol :cols="isMobile ? 12 : 9" id="right-box">
         <div ref="scrollContent">
           <template v-for="section in sections" :key="section.id">
             <h4 :id="section.id">{{ section.label }}</h4>
@@ -10,7 +10,7 @@
         </div>
       </BCol>
 
-      <BCol cols="3" id="left-box">
+      <BCol v-if="!isMobile" cols="3" id="left-box">
         <div id="nav-sticky">
           <BNav ref="navTarget" pills vertical>
             <p class="toc-title">{{ title }}</p>
@@ -29,23 +29,29 @@
     </BRow>
   </BContainer>
 
-  <div v-else class="mobile-accordion">
-    <p class="toc-title">{{ title }}</p>
-    <div v-for="section in sections" :key="section.id" class="accordion-item">
-      <button
-        type="button"
-        class="accordion-header"
-        :aria-expanded="activeSection === section.id"
-        @click="toggleSection(section.id)"
+  <!-- スマホ版: 本文は常に表示し、目次はボタンで開閉するメニューにする -->
+  <template v-if="isMobile">
+    <button type="button" class="toc-fab" @click="menuOpen = !menuOpen">
+      <span class="toc-fab-icon">{{ menuOpen ? '✕' : '☰' }}</span>
+      目次
+    </button>
+
+    <div v-if="menuOpen" class="toc-overlay" @click="menuOpen = false"></div>
+
+    <nav class="toc-menu" :class="{ 'toc-menu--open': menuOpen }">
+      <p class="toc-title">{{ title }}</p>
+      <hr />
+      <a
+        v-for="section in sections"
+        :key="section.id"
+        :href="`#${section.id}`"
+        class="toc-menu-item"
+        @click.prevent="selectSection(section.id)"
       >
-        <span>{{ section.label }}</span>
-        <span class="accordion-icon">{{ activeSection === section.id ? '▲' : '▼' }}</span>
-      </button>
-      <div class="accordion-panel" v-show="activeSection === section.id">
-        <slot :name="section.id" />
-      </div>
-    </div>
-  </div>
+        {{ section.label }}
+      </a>
+    </nav>
+  </template>
 </template>
 
 <script setup lang="ts">
@@ -75,17 +81,18 @@ function scrollTo(id: string) {
   window.scrollTo({ top: y, behavior: 'smooth' })
 }
 
-// スマホ版は目次+全セクション表示だと画面が狭くなるので、
-// タップしたセクションだけ開くアコーディオン表示に切り替える
+// スマホ版は目次サイドバーが本文を圧迫するので、
+// 本文は常に表示したまま目次はボタンで開閉するメニューにする
 const isMobile = ref(false)
-const activeSection = ref<string | null>(null)
+const menuOpen = ref(false)
 
 function updateIsMobile() {
   isMobile.value = window.matchMedia('(max-width: 767px)').matches
 }
 
-function toggleSection(id: string) {
-  activeSection.value = activeSection.value === id ? null : id
+function selectSection(id: string) {
+  menuOpen.value = false
+  scrollTo(id)
 }
 
 onMounted(() => {
@@ -134,35 +141,69 @@ onUnmounted(() => {
     margin-bottom: 0;
 }
 
-/* スマホ版: 目次は縦一列、選択したセクションだけ開くアコーディオン */
-.mobile-accordion{
-    padding: 0 8px;
-}
-
-.accordion-item{
-    border-bottom: 1px solid #dee2e6;
-}
-
-.accordion-header{
+/* スマホ版: 目次を開くためのボタン（右下固定） */
+.toc-fab{
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 1050;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 12px 4px;
-    background: none;
+    gap: 6px;
+    padding: 10px 16px;
     border: none;
-    text-align: left;
-    font-size: 15px;
+    border-radius: 24px;
+    background-color: #0d6efd;
+    color: #fff;
+    font-size: 14px;
     font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.toc-fab-icon{
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* メニュー背後のオーバーレイ（タップで閉じる） */
+.toc-overlay{
+    position: fixed;
+    inset: 0;
+    z-index: 1040;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* 目次メニュー本体（右からスライドイン） */
+.toc-menu{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1045;
+    width: 70%;
+    max-width: 280px;
+    height: 100%;
+    padding: 16px;
+    background-color: #fff;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+}
+
+.toc-menu--open{
+    transform: translateX(0);
+}
+
+.toc-menu-item{
+    display: block;
+    padding: 12px 8px;
+    border-bottom: 1px solid #eee;
     color: #333;
+    text-decoration: none;
+    font-size: 15px;
 }
 
-.accordion-icon{
-    font-size: 11px;
-    color: #666;
-}
-
-.accordion-panel{
-    padding: 4px 4px 12px;
+.toc-menu-item:hover{
+    background-color: #f5f5f5;
 }
 </style>
