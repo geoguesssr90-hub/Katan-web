@@ -27,19 +27,21 @@
         </div>
     </div>
 
-	<div class="hexagon-wrapper">
-		<div v-for="(row, ri) in rows" :key="ri" class="hex-row">
-            <div
-                class="hexagon"
-                :class="[`hexagon--${tile.resource}`, { 'hexagon--active': isActive(tile) }]"
-                v-for="(tile, ti) in row"
-                :key="ti"
-            >
-                <div v-if="tile.number !== null" class="token" :class="{ 'token--hot': tile.number === 6 || tile.number === 8 }" :style="tokenStyle(tile.number)">
-                    <span class="token-number" :style="{ fontSize: numberFontSize(tile.number) + 'px' }">{{ tile.number }}</span>
-                    <span class="token-pips">{{ '•'.repeat(pips(tile.number)) }}</span>
-                </div>
-            </div>
+	<div class="board-scroll">
+		<div class="hexagon-wrapper">
+			<div v-for="(row, ri) in rows" :key="ri" class="hex-row">
+	            <div
+	                class="hexagon"
+	                :class="[`hexagon--${tile.resource}`, { 'hexagon--active': isActive(tile) }]"
+	                v-for="(tile, ti) in row"
+	                :key="ti"
+	            >
+	                <div v-if="tile.number !== null" class="token" :class="{ 'token--hot': tile.number === 6 || tile.number === 8 }" :style="tokenStyle(tile.number)">
+	                    <span class="token-number" :style="{ fontSize: numberFontSize(tile.number) + 'px' }">{{ tile.number }}</span>
+	                    <span class="token-pips">{{ '•'.repeat(pips(tile.number)) }}</span>
+	                </div>
+	            </div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -171,10 +173,19 @@ const gains = computed(() => {
     border-radius: 3px;
 }
 
+/* 盤面(5列=500px)が狭い画面をはみ出さないよう、
+   自身の内側で横スクロールさせる。max-width:100% でページ幅は超えない。 */
+.board-scroll{
+    max-width: 100%;
+    overflow-x: auto;
+}
+
 .hexagon-wrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: max-content;
+    margin: 0 auto;
 }
 
 .hex-row{
