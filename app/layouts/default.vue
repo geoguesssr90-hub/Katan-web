@@ -10,8 +10,6 @@
   <footer>
     <Footer />
   </footer>
-
-  <Totop />
 </template>
 
 <script setup lang="ts">
