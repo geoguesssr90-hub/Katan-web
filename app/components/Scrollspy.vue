@@ -53,6 +53,7 @@
         :key="section.id"
         :href="`#${section.id}`"
         class="toc-menu-item"
+        :class="{ 'toc-menu-item--active': current === section.id }"
         @click.prevent="selectSection(section.id)"
       >
         {{ section.label }}
@@ -77,7 +78,10 @@ const props = defineProps<{
 const scrollContent = useTemplateRef('scrollContent')
 const navTarget = useTemplateRef('navTarget')
 
-const { scrollIntoView } = useScrollspy(scrollContent, navTarget)
+// current: 現在ビューポートに見えているセクションの id（コンテンツ側を監視して算出）。
+// navTarget(<BNav>) はスマホでは描画されないが、current はコンテンツ監視なので
+// スマホのスライドイン目次でもハイライトに使える。
+const { current, scrollIntoView } = useScrollspy(scrollContent, navTarget)
 
 const HEADER_OFFSET = 72 + 15// nav-sticky の top と同じ値
 
@@ -217,6 +221,12 @@ onUnmounted(() => {
 
 .toc-menu-item:hover{
     background-color: #f5f5f5;
+}
+
+/* 現在読んでいるセクションを強調（デスクトップ側 .nav-link.active と同じ色・太さ） */
+.toc-menu-item--active{
+    color: #0d6efd;
+    font-weight: bold;
 }
 
 /* 「ページ上部へ」は目次項目と区別できるよう薄い色＋下に太めの区切り線 */
