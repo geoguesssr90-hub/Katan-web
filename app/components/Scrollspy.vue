@@ -42,6 +42,13 @@
       <p class="toc-title">{{ title }}</p>
       <hr />
       <a
+        href="#"
+        class="toc-menu-item toc-menu-item--top"
+        @click.prevent="backToTop"
+      >
+        ▲ ページ上部へ
+      </a>
+      <a
         v-for="section in sections"
         :key="section.id"
         :href="`#${section.id}`"
@@ -95,6 +102,11 @@ function selectSection(id: string) {
   scrollTo(id)
 }
 
+function backToTop() {
+  menuOpen.value = false
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
 onMounted(() => {
   updateIsMobile()
   window.addEventListener('resize', updateIsMobile)
@@ -141,11 +153,11 @@ onUnmounted(() => {
     margin-bottom: 0;
 }
 
-/* スマホ版: 目次を開くためのボタン（右下固定） */
+/* スマホ版: 目次を開くためのボタン（右下に常時表示） */
 .toc-fab{
     position: fixed;
     right: 16px;
-    bottom: 16px;
+    bottom: 24px;
     z-index: 1050;
     display: flex;
     align-items: center;
@@ -205,5 +217,13 @@ onUnmounted(() => {
 
 .toc-menu-item:hover{
     background-color: #f5f5f5;
+}
+
+/* 「ページ上部へ」は目次項目と区別できるよう薄い色＋下に太めの区切り線 */
+.toc-menu-item--top{
+    color: #888;
+    font-size: 14px;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 4px;
 }
 </style>
