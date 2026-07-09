@@ -38,6 +38,7 @@ const navigate = (path) => {
 const navLinks=[
   {label: 'カタンについて', path: '/'},
   {label: 'カタンルール詳細', path: '/about'},
+  {label: '盤面で遊んでみる', path: '/play'},
   {label: 'プライバシーポリシー', path: '/privacy'}
 ]
 

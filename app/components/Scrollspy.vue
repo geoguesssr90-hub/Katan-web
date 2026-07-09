@@ -1,5 +1,5 @@
 <template>
-  <BContainer id="container-area" fluid>
+  <BContainer v-if="!isMobile" id="container-area" fluid>
     <BRow>
       <BCol cols="9" id="right-box">
         <div ref="scrollContent">
@@ -28,6 +28,24 @@
       </BCol>
     </BRow>
   </BContainer>
+
+  <div v-else class="mobile-accordion">
+    <p class="toc-title">{{ title }}</p>
+    <div v-for="section in sections" :key="section.id" class="accordion-item">
+      <button
+        type="button"
+        class="accordion-header"
+        :aria-expanded="activeSection === section.id"
+        @click="toggleSection(section.id)"
+      >
+        <span>{{ section.label }}</span>
+        <span class="accordion-icon">{{ activeSection === section.id ? '▲' : '▼' }}</span>
+      </button>
+      <div class="accordion-panel" v-show="activeSection === section.id">
+        <slot :name="section.id" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -56,6 +74,28 @@ function scrollTo(id: string) {
   const y = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET
   window.scrollTo({ top: y, behavior: 'smooth' })
 }
+
+// スマホ版は目次+全セクション表示だと画面が狭くなるので、
+// タップしたセクションだけ開くアコーディオン表示に切り替える
+const isMobile = ref(false)
+const activeSection = ref<string | null>(null)
+
+function updateIsMobile() {
+  isMobile.value = window.matchMedia('(max-width: 767px)').matches
+}
+
+function toggleSection(id: string) {
+  activeSection.value = activeSection.value === id ? null : id
+}
+
+onMounted(() => {
+  updateIsMobile()
+  window.addEventListener('resize', updateIsMobile)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateIsMobile)
+})
 </script>
 
 <style scoped>
@@ -81,23 +121,8 @@ function scrollTo(id: string) {
     }
 }
 
-@media(max-width:767px){
-    #nav-sticky{
-        font-size:7px;
-        padding:0 !important;
-    }
-
-    #left-box{
-        padding:0;
-    }
-
-    #right-box{
-      padding:25px;
-    }
-}
-
 /* コンテンツ側はスクロールさせない（ページ全体でスクロール） */
-#right-box {    
+#right-box {
   align-self: flex-start;
 }
 
@@ -107,5 +132,37 @@ function scrollTo(id: string) {
     color: #333;
     margin: 10%;
     margin-bottom: 0;
+}
+
+/* スマホ版: 目次は縦一列、選択したセクションだけ開くアコーディオン */
+.mobile-accordion{
+    padding: 0 8px;
+}
+
+.accordion-item{
+    border-bottom: 1px solid #dee2e6;
+}
+
+.accordion-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 4px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.accordion-icon{
+    font-size: 11px;
+    color: #666;
+}
+
+.accordion-panel{
+    padding: 4px 4px 12px;
 }
 </style>

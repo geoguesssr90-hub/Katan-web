@@ -5,8 +5,11 @@
         <template #section2><Descriptions e="proposal" /></template>
         <template #section3><Descriptions e="points" /></template>
         <template #section4><Descriptions e="turn" /></template>
+        <template #section5><CatanBoard /></template>
     </Scrollspy>
     <NuxtLink to="/about">カタンルール説明</NuxtLink>
+    <br />
+    <NuxtLink to="/play">開拓地を置いて遊んでみる</NuxtLink>
   </div>
 </template>
 
@@ -19,7 +22,8 @@ const sections = [
     {id:'section1', label: 'はじめに',},
     {id:'section2', label:'目的',},
     {id:'section3', label:'ポイント',},
-    {id:'section4', label:'ターンの流れ'}
+    {id:'section4', label:'ターンの流れ'},
+    {id:'section5', label:'カタンボード'}
 ]
 
 useHead({
