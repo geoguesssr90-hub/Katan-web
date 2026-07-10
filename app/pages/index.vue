@@ -10,6 +10,8 @@
     <NuxtLink to="/about">カタンルール説明</NuxtLink>
     <br />
     <NuxtLink to="/play">開拓地を置いて遊んでみる</NuxtLink>
+    <br />
+    <NuxtLink to="/guide/intro">はじめてカタンを遊ぶ</NuxtLink>
   </div>
 </template>
 
