@@ -2,9 +2,34 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-19',
   nitro:{
-    preset:'vercel-static'
+    preset:'vercel-static',
+    // 既存ページは SPA(ssr:false の島)でHTMLが空シェルのため、クローラが
+    // ガイドのリンクを辿れない。SEO対象のガイド5ページを明示列挙して
+    // 静的HTMLにプリレンダリングする。
+    prerender: {
+      routes: [
+        '/guide/intro',
+        '/guide/setup',
+        '/guide/turn',
+        '/guide/tips',
+        '/guide/start',
+      ],
+    },
   },
-  ssr:false,
+  // グローバルは SSR 有効。Nuxt のハイブリッドは「global ssr:true → 特定ルート
+  // だけ ssr:false」の方向しかできないため、ガイドを prerender するにはこの向き
+  // にする必要がある。既存ページは下の routeRules で ssr:false=SPA のまま維持。
+  ssr:true,
+
+  // ガイドだけ prerender(SSRで本文入り静的HTML)。既存ページは ssr:false の島
+  // としてクライアント描画のまま = 盤面のランダム生成もクライアントのみで不整合なし。
+  routeRules: {
+    '/': { ssr: false },
+    '/about': { ssr: false },
+    '/play': { ssr: false },
+    '/privacy': { ssr: false },
+    '/guide/**': { prerender: true },
+  },
 
   site: {
   url: 'https://catan-web-one.vercel.app',
